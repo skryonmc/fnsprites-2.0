@@ -56,5 +56,6 @@
  "ability.fnspirits.kill_switch": "Mas dano con flechas",
  "item.fnspirits.spirit_kill_switch_normal": "Espiritu Kill Switch",
  "item.fnspirits.spirit_kill_switch_green": "Espiritu Kill Switch Verde",
- "item.fnspirits.spirit_kill_switch_gold": "Espiritu Kill Switch Dorado"
+ "item.fnspirits.spirit_kill_switch_gold": "Espiritu Kill Switch Dorado",
+ "entity.fnspirits.spirit": "Espiritu"
 }
