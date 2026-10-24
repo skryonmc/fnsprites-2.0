@@ -1,0 +1,30 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+
+[[mods]]
+modId="fnspirits"
+version="0.1.0"
+displayName="Fortnite Spirits"
+description='''Espíritus de Fortnite con habilidades, niveles y variantes.'''
+
+[[dependencies.fnspirits]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.fnspirits]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.fnspirits]]
+modId="geckolib"
+mandatory=true
+versionRange="[4.4,)"
+ordering="AFTER"
+side="BOTH"
