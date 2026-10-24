@@ -1,16 +1,13 @@
-# Fortnite Spirits - Parte 1 (nucleo)  | Forge 1.20.1 + GeckoLib
+# Fortnite Spirits - Parte 2 (variantes, doble salto, loot)
 
-1. Descarga el Forge MDK 1.20.1 (47.x) y copia `src/` de esta carpeta dentro del MDK.
-2. En `build.gradle` del MDK agrega:
+Copia `src/` encima del proyecto de la Parte 1. **SpiritsMod.java se reemplaza** (registra red, particulas y loot).
 
-   repositories { maven { url = "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/" } }
-   dependencies { implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.20.1:4.4.9") }
+Incluye:
+- Verdes: numeros que caen y cambian (particula `fnspirits:digit`). Dorados: destellos que orbitan (`fnspirits:shine`).
+  Se ven en el espiritu equipado en la espalda y en los espiritus tirados en el suelo.
+- Jack Rabbit: doble salto (paquete cliente->servidor). Se recupera al tocar el suelo y respeta el cooldown.
+- Hacker: probabilidad de duplicar el botin de menas (10% por nivel, no con Toque de seda) y mas probabilidad/rareza de espiritus en cofres.
+- Espiritus en cofres: 6% por cofre. Corona, Hacker y Klombo no salen de cofres normales.
 
-3. `./gradlew runClient` para probar. Items: /give @s fnspirits:spirit_tails_gold
-
-Controles: pon el espiritu en la segunda mano (F).
-- Tails: agachate en el aire mientras caes.
-- Arbustin: agachate 2 segundos en el suelo.
-
-Sin texturas/modelos todavia (salen cuadros morados): vienen en las partes 3, 4 y 7.
-Pendiente: doble salto de Jack Rabbit (necesita paquete cliente-servidor), suerte al minar de Hacker.
+Prueba: /give @s fnspirits:spirit_sonic_green (ponlo en la segunda mano y mira tu espalda), o abre cofres de mazmorra.
+Las texturas de particulas son temporales (digitos y estrellas de 8x8): puedes cambiarlas por las tuyas.
