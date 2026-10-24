@@ -1,0 +1,22 @@
+{
+ "parent": "item/generated",
+ "textures": {
+  "layer0": "fnspirits:item/spirit_sonic_green"
+ },
+ "display": {
+  "firstperson_lefthand": {
+   "scale": [
+    0,
+    0,
+    0
+   ]
+  },
+  "thirdperson_lefthand": {
+   "scale": [
+    0,
+    0,
+    0
+   ]
+  }
+ }
+}

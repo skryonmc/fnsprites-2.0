@@ -1,21 +1,13 @@
-# Fortnite Spirits - Parte 3 (entidades errantes + modelos 3D GeckoLib)
+# Fortnite Spirits - Parte 4 (espiritu en la espalda + iconos de items)
 
-Copia `src/` encima de las partes anteriores. SE REEMPLAZAN: `SpiritsMod.java` y los archivos de `lang/`
-(el lang ya trae todas las claves de la Parte 1 mas la entidad).
+Copia `src/` encima de las partes anteriores (no reemplaza nada).
 
-Incluye:
-- Entidad `fnspirits:spirit` (GeckoLib): vaga despacio, mira al jugador, es inmune a mobs. Clic derecho = lo recoges como item
-  (con su nivel si venia de un item). Los silvestres desaparecen a los 5 minutos.
-- 13 modelos 3D (uno por espiritu, con accesorios: orejas/colas de Tails, pinchos de Sonic/Shadow, nube de Tormenta, corona, lentes, ojos de rana...)
-  y 39 texturas (normal / verde / dorado). Animaciones idle y walk. Verdes y dorados llevan sus particulas tambien como entidad.
-- Aparicion natural rara en el Overworld (biome modifier). Solo salen tipos comunes/raros de la tabla de cofres (no Corona/Hacker/Klombo).
-- Sonidos provisionales (Allay con tono distinto por espiritu). Sonidos propios (.ogg) van en la parte de assets.
+- Espiritu en la segunda mano -> aparece en tu espalda (y en la de otros jugadores), con el MISMO modelo 3D y animaciones de la Parte 3:
+  idle cuando estas quieto, walk cuando caminas, "pop" de aparicion al equiparlo, se baja un poco al agacharte.
+  Las particulas de variantes (numeros verdes / brillo dorado) ya salen ahi desde la Parte 2.
+- Los items tienen icono y modelo (39 PNG 16x16 procedurales: ya no salen cuadros morados). Son provisionales: cambialos por tus pixel arts.
+- El item de la segunda mano se oculta en la mano (display scale 0 en "lefthand"), para que solo se vea en la espalda.
+  En la mano principal si se ve. Jugadores zurdos: cambia lefthand por righthand en los modelos de items.
 
-Prueba:
-/summon fnspirits:spirit ~ ~ ~ {SpiritType:"tails",SpiritVariant:"gold"}
-tipos: tails sonic shadow storm jonesy corona hacker klombo jack_rabbit arbustin aventurero bits8 kill_switch
-variantes: normal green gold
-
-IMPORTANTE: los modelos son versiones base procedurales (cubos + accesorios), no copias exactas del diseno de Fortnite.
-Para el diseno identico, abre cualquier `spirit_<tipo>.geo.json` en Blockbench (plugin GeckoLib) y editalo/retexturizalo;
-los nombres de huesos (body, leg_l, leg_r, arm_l, arm_r, acc) deben mantenerse para que funcionen las animaciones.
+Ajustes rapidos en `BackSpiritLayer.java`: tamano (0.55f), altura (-0.75f) y distancia a la espalda (0.27f).
+No se renderiza en primera persona (el modelo del jugador no se dibuja ahi).
