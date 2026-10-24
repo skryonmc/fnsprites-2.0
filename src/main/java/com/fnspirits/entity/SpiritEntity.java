@@ -80,6 +80,9 @@ public class SpiritEntity extends PathfinderMob implements GeoEntity {
         entityData.set(DATA_VARIANT, v.ordinal());
     }
 
+    /** Los salvajes desaparecen solos a los 5 minutos si nadie los recoge. */
+    public void setWild(boolean w) { this.wild = w; }
+
     public void setItemTag(CompoundTag tag) { this.itemTag = tag == null ? new CompoundTag() : tag.copy(); }
 
     @Override

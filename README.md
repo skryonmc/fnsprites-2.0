@@ -1,18 +1,22 @@
-# Fortnite Spirits - Parte 5 (santuarios, cajas de extraccion, caja portatil, pedestal y album)
+# Fortnite Spirits - Parte 6 (cofres, mobs, obtencion especifica, zonas de codigo)
 
-Copia `src/` encima de las partes anteriores. SE REEMPLAZAN: SpiritsMod.java, registry/ModItems.java, network/ModNetwork.java y los lang.
+Copia `src/` encima de las partes anteriores. SE REEMPLAZAN: loot/SpiritChestModifier.java (Parte 2), entity/SpiritEntity.java (Parte 3, +setWild),
+entity/SpiritSpawner.java (Parte 5, +setWild), registry/ModBlocks, ModItems, ModFeatures, el tag pickaxe y los lang.
 
-## Que hay
-- **Santuario** (generacion de mundo, raro, Overworld): plataforma con 4 Cajas de extraccion, un Pedestal central y 4 pilares con faroles.
-  Frecuencia: `data/fnspirits/worldgen/placed_feature/shrine.json` -> `"chance": 150` (menor = mas comun).
-- **Caja de extraccion**: cargada (brilla y suelta particulas) -> clic derecho con la mano vacia y sale un espiritu como entidad (con efectos y sonido;
-  los dorados/verdes tienen mas efectos). Se recarga en 15 min (ExtractionBoxBlock.COOLDOWN_TICKS). Las cajas que pones tu empiezan descargadas.
-  Con un espiritu en la mano: clic derecho DOS veces en 5s lo EXTRAE (se consume, da XP). Corona nv5 -> Corona dorada; Corona dorada nv5 -> Hacker.
-- **Caja portatil**: mantén clic derecho 2s y extrae un espiritu al azar delante de ti (se consume). Receta: oro, amatista, ojo de ender, hierro.
-- **Pedestal**: clic con un espiritu y se ve con su modelo 3D animado girando (clic para recogerlo / intercambiar). Receta con ladrillos y amatista.
-- **Album**: clic derecho abre una pantalla con los 39 espiritus (13 tipos x 3 variantes); los que no has tenido salen en silueta.
-  Se registra solo al llevar el espiritu en el inventario.
-- Los bloques se rompen con pico y se recogen.
+## Cofres
+Al abrir un cofre generado (6%, mas con Hacker) el espiritu SALE del cofre: particulas, sonido y salto; los verdes y dorados suenan/lucen distinto.
 
-Prueba: /give @s fnspirits:extraction_box , /give @s fnspirits:spirit_album , /give @s fnspirits:portable_extraction_box
-Para ver un santuario rapido: /place feature fnspirits:shrine
+## Mobs
+Matar hostiles: Zombie 1.5%, otros hostiles 0.8%, Warden/Elder Guardian 30% (rareza +2), Wither/Dragon 100% (rareza +3). El Hacker sube la probabilidad.
+50% de las veces sale el espiritu "tematico" del mob (esqueleto=Kill Switch, creeper=Tormenta, enderman=Shadow, bruja=Arbustin, arana=Jack Rabbit, phantom=Tails...).
+Constantes en `ability/MobDropHandler.java`.
+
+## Obtencion especifica (una vez por jugador, aparece como entidad cerca)
+- Klombo: comer 500 alimentos. Aventurero: minar 150 menas. Tormenta: que te caiga un rayo. Kill Switch: matar un esqueleto con flecha desde 30+ bloques.
+  Metas en `ability/SpecialObtainHandler.java`. (Corona y Hacker siguen con su cadena de las partes 1 y 5.)
+
+## Zonas de codigo (mundo, raras)
+Plataforma oscura con un Terminal y 4 paneles de flechas. Clic derecho al terminal: muestra 3 s un codigo de 4 flechas (se reinicia el progreso);
+pulsa los paneles en ese orden. Acierto = sale un espiritu con rareza mejorada (+2, mas con Hacker); fallo = reinicio. Se bloquea 40 min y cambia el codigo.
+Frecuencia en `placed_feature/code_zone.json` ("chance": 220). Prueba: /place feature fnspirits:code_zone
+Los espiritus que salen (cofre, mob, zona) desaparecen a los 5 min si nadie los recoge.

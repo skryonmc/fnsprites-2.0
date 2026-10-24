@@ -43,6 +43,11 @@ public final class ModItems {
     public static final RegistryObject<Item> PEDESTAL_ITEM = ITEMS.register("spirit_pedestal",
             () -> new BlockItem(ModBlocks.PEDESTAL.get(), new Item.Properties()));
 
+    public static final RegistryObject<Item> CODE_TERMINAL_ITEM = ITEMS.register("code_terminal",
+            () -> new BlockItem(ModBlocks.CODE_TERMINAL.get(), new Item.Properties()));
+    public static final RegistryObject<Item> ARROW_PAD_ITEM = ITEMS.register("arrow_pad",
+            () -> new BlockItem(ModBlocks.ARROW_PAD.get(), new Item.Properties()));
+
     public static final RegistryObject<CreativeModeTab> TAB = TABS.register("spirits", () ->
             CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.fnspirits"))
@@ -52,6 +57,8 @@ public final class ModItems {
                         out.accept(PORTABLE_BOX.get());
                         out.accept(EXTRACTION_BOX_ITEM.get());
                         out.accept(PEDESTAL_ITEM.get());
+                        out.accept(CODE_TERMINAL_ITEM.get());
+                        out.accept(ARROW_PAD_ITEM.get());
                         SPIRITS.values().forEach(m -> m.values().forEach(o -> out.accept(o.get())));
                     })
                     .build());

@@ -26,6 +26,7 @@ public final class SpiritSpawner {
 
         SpiritEntity e = new SpiritEntity(ModEntities.SPIRIT.get(), sl);
         e.setSpirit(t, v);
+        e.setWild(true);
         e.moveTo(pos.x, pos.y, pos.z, sl.random.nextFloat() * 360f, 0f);
         e.setDeltaMovement(0, 0.3, 0);
         sl.addFreshEntity(e);

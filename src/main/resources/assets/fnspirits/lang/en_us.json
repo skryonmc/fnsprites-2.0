@@ -80,5 +80,17 @@
  "spirit.fnspirits.arbustin": "Arbustín",
  "spirit.fnspirits.aventurero": "Aventurero",
  "spirit.fnspirits.bits8": "8 Bits",
- "spirit.fnspirits.kill_switch": "Kill Switch"
+ "spirit.fnspirits.kill_switch": "Kill Switch",
+ "block.fnspirits.code_terminal": "Terminal de código",
+ "block.fnspirits.arrow_pad": "Panel de flechas",
+ "msg.fnspirits.code_show": "Código: %s",
+ "msg.fnspirits.code_progress": "Correcto %s/%s",
+ "msg.fnspirits.code_wrong": "Código incorrecto",
+ "msg.fnspirits.code_ok": "¡Código correcto!",
+ "msg.fnspirits.code_locked": "El terminal está bloqueado por un rato",
+ "msg.fnspirits.code_none": "No hay ningún terminal cerca",
+ "msg.fnspirits.special.klombo": "Comiste tanto que un Klombo apareció cerca de ti",
+ "msg.fnspirits.special.aventurero": "Minaste tantas menas que un Aventurero apareció cerca de ti",
+ "msg.fnspirits.special.storm": "El rayo dejó un espíritu de Tormenta a tu lado",
+ "msg.fnspirits.special.killswitch": "Ese tiro de largo alcance atrajo a un Kill Switch"
 }
