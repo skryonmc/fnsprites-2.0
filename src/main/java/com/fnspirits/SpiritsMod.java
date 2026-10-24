@@ -2,9 +2,7 @@ package com.fnspirits;
 
 import com.fnspirits.loot.ModLoot;
 import com.fnspirits.network.ModNetwork;
-import com.fnspirits.registry.ModEntities;
-import com.fnspirits.registry.ModItems;
-import com.fnspirits.registry.ModParticles;
+import com.fnspirits.registry.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -16,9 +14,12 @@ public class SpiritsMod {
 
     public SpiritsMod() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        ModBlocks.BLOCKS.register(bus);
+        ModBlocks.BLOCK_ENTITIES.register(bus);
         ModItems.register(bus);
         ModEntities.ENTITIES.register(bus);
         ModParticles.PARTICLES.register(bus);
+        ModFeatures.FEATURES.register(bus);
         ModLoot.SERIALIZERS.register(bus);
         bus.addListener(this::commonSetup);
     }

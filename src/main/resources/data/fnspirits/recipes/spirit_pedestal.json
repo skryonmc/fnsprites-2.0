@@ -1,0 +1,3 @@
+{"type":"minecraft:crafting_shaped","pattern":["SAS"," S ","SSS"],
+ "key":{"S":{"item":"minecraft:stone_bricks"},"A":{"item":"minecraft:amethyst_shard"}},
+ "result":{"item":"fnspirits:spirit_pedestal"}}

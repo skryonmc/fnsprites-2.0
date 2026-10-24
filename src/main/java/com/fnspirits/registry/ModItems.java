@@ -1,11 +1,14 @@
 package com.fnspirits.registry;
 
 import com.fnspirits.SpiritsMod;
+import com.fnspirits.item.PortableBoxItem;
+import com.fnspirits.item.SpiritAlbumItem;
 import com.fnspirits.item.SpiritItem;
 import com.fnspirits.spirit.SpiritType;
 import com.fnspirits.spirit.SpiritVariant;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -33,11 +36,24 @@ public final class ModItems {
         }
     }
 
+    public static final RegistryObject<Item> PORTABLE_BOX = ITEMS.register("portable_extraction_box", PortableBoxItem::new);
+    public static final RegistryObject<Item> ALBUM = ITEMS.register("spirit_album", SpiritAlbumItem::new);
+    public static final RegistryObject<Item> EXTRACTION_BOX_ITEM = ITEMS.register("extraction_box",
+            () -> new BlockItem(ModBlocks.EXTRACTION_BOX.get(), new Item.Properties()));
+    public static final RegistryObject<Item> PEDESTAL_ITEM = ITEMS.register("spirit_pedestal",
+            () -> new BlockItem(ModBlocks.PEDESTAL.get(), new Item.Properties()));
+
     public static final RegistryObject<CreativeModeTab> TAB = TABS.register("spirits", () ->
             CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.fnspirits"))
                     .icon(() -> new ItemStack(get(SpiritType.TAILS, SpiritVariant.GOLD)))
-                    .displayItems((params, out) -> SPIRITS.values().forEach(m -> m.values().forEach(o -> out.accept(o.get()))))
+                    .displayItems((params, out) -> {
+                        out.accept(ALBUM.get());
+                        out.accept(PORTABLE_BOX.get());
+                        out.accept(EXTRACTION_BOX_ITEM.get());
+                        out.accept(PEDESTAL_ITEM.get());
+                        SPIRITS.values().forEach(m -> m.values().forEach(o -> out.accept(o.get())));
+                    })
                     .build());
 
     public static Item get(SpiritType t, SpiritVariant v) {
